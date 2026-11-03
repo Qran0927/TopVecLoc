@@ -1,0 +1,14 @@
+{
+  "counts": {
+    "image_encoder": 23539928,
+    "cnn_map_encoder": 11718872,
+    "gnn_map_encoder": 211148,
+    "all_encoders": 35470028,
+    "fusion": 80,
+    "full_model": 35470028
+  },
+  "unit": "number of unique registered learnable parameters; buffers excluded",
+  "parameter_m_divisor": 1000000,
+  "fp32_mb_divisor": 1000000,
+  "fp32_bytes_per_parameter": 4
+}

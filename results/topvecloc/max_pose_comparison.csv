@@ -1,0 +1,3 @@
+model,position_recall_1m,position_recall_3m,position_recall_5m,position_recall_10m,lateral_recall_1m,lateral_recall_3m,lateral_recall_5m,lateral_recall_10m,longitudinal_recall_1m,longitudinal_recall_3m,longitudinal_recall_5m,longitudinal_recall_10m,yaw_recall_1deg,yaw_recall_3deg,yaw_recall_5deg,yaw_recall_10deg
+"VecMapLocNet (released checkpoint, user-confirmed)",9.33,52.65,69.63000000000001,74.6,30.049999999999997,65.97,74.48,77.84,29.86,65.49000000000001,74.08,77.77,22.93,60.33,76.25999999999999,82.39
+Current model (maximum-probability pose),8.88,53.800000000000004,75.62,81.54,30.56,70.49,80.44,84.00999999999999,30.049999999999997,69.69,80.44,83.96000000000001,25.979999999999997,67.49000000000001,82.59,87.11

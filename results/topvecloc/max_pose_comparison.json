@@ -1,0 +1,50 @@
+{
+  "VecMapLocNet (released checkpoint, user-confirmed)": {
+    "sample_count": 10000,
+    "success_count": 10000,
+    "failure_count": 0,
+    "metrics": {
+      "position_recall_1m": 9.33,
+      "position_recall_3m": 52.65,
+      "position_recall_5m": 69.63000000000001,
+      "position_recall_10m": 74.6,
+      "lateral_recall_1m": 30.049999999999997,
+      "lateral_recall_3m": 65.97,
+      "lateral_recall_5m": 74.48,
+      "lateral_recall_10m": 77.84,
+      "longitudinal_recall_1m": 29.86,
+      "longitudinal_recall_3m": 65.49000000000001,
+      "longitudinal_recall_5m": 74.08,
+      "longitudinal_recall_10m": 77.77,
+      "yaw_recall_1deg": 22.93,
+      "yaw_recall_3deg": 60.33,
+      "yaw_recall_5deg": 76.25999999999999,
+      "yaw_recall_10deg": 82.39
+    },
+    "failure_reasons": {}
+  },
+  "Current model (maximum-probability pose)": {
+    "sample_count": 10000,
+    "success_count": 10000,
+    "failure_count": 0,
+    "metrics": {
+      "position_recall_1m": 8.88,
+      "position_recall_3m": 53.800000000000004,
+      "position_recall_5m": 75.62,
+      "position_recall_10m": 81.54,
+      "lateral_recall_1m": 30.56,
+      "lateral_recall_3m": 70.49,
+      "lateral_recall_5m": 80.44,
+      "lateral_recall_10m": 84.00999999999999,
+      "longitudinal_recall_1m": 30.049999999999997,
+      "longitudinal_recall_3m": 69.69,
+      "longitudinal_recall_5m": 80.44,
+      "longitudinal_recall_10m": 83.96000000000001,
+      "yaw_recall_1deg": 25.979999999999997,
+      "yaw_recall_3deg": 67.49000000000001,
+      "yaw_recall_5deg": 82.59,
+      "yaw_recall_10deg": 87.11
+    },
+    "failure_reasons": {}
+  }
+}

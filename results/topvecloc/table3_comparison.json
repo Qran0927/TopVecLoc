@@ -1,0 +1,80 @@
+{
+  "baseline": "TopVeLoc Table III",
+  "eligible": true,
+  "strictly_improved_count": 12,
+  "metrics": {
+    "longitudinal_recall_1m": {
+      "baseline": 28.56,
+      "candidate": 30.049999999999997,
+      "improvement": 1.4899999999999984,
+      "passed": true
+    },
+    "longitudinal_recall_3m": {
+      "baseline": 67.02,
+      "candidate": 69.69,
+      "improvement": 2.6700000000000017,
+      "passed": true
+    },
+    "longitudinal_recall_5m": {
+      "baseline": 78.87,
+      "candidate": 80.44,
+      "improvement": 1.5699999999999932,
+      "passed": true
+    },
+    "longitudinal_recall_10m": {
+      "baseline": 82.75,
+      "candidate": 83.96000000000001,
+      "improvement": 1.210000000000008,
+      "passed": true
+    },
+    "lateral_recall_1m": {
+      "baseline": 29.07,
+      "candidate": 30.56,
+      "improvement": 1.4899999999999984,
+      "passed": true
+    },
+    "lateral_recall_3m": {
+      "baseline": 68.02,
+      "candidate": 70.49,
+      "improvement": 2.469999999999999,
+      "passed": true
+    },
+    "lateral_recall_5m": {
+      "baseline": 78.84,
+      "candidate": 80.44,
+      "improvement": 1.5999999999999943,
+      "passed": true
+    },
+    "lateral_recall_10m": {
+      "baseline": 82.76,
+      "candidate": 84.00999999999999,
+      "improvement": 1.2499999999999858,
+      "passed": true
+    },
+    "position_recall_1m": {
+      "baseline": 8.18,
+      "candidate": 8.88,
+      "improvement": 0.7000000000000011,
+      "passed": true
+    },
+    "position_recall_3m": {
+      "baseline": 50.37,
+      "candidate": 53.800000000000004,
+      "improvement": 3.430000000000007,
+      "passed": true
+    },
+    "position_recall_5m": {
+      "baseline": 73.48,
+      "candidate": 75.62,
+      "improvement": 2.1400000000000006,
+      "passed": true
+    },
+    "position_recall_10m": {
+      "baseline": 80.15,
+      "candidate": 81.54,
+      "improvement": 1.3900000000000006,
+      "passed": true
+    }
+  },
+  "candidate_csv": "experiments/maplocnet__topveloc_extrap_m1p0/checkpoint-extrapolated_per_sample.csv"
+}

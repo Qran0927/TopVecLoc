@@ -1,0 +1,119 @@
+data:
+  root: "${UAV2MAP_ROOT}"
+  train_citys:
+    - Paris
+    - Berlin
+    - London
+    - Tokyo
+    - NewYork  
+  val_citys:
+  - SanFrancisco
+  
+  ##2、
+  image_size: 256     # 
+  train:
+    batch_size: 12
+    num_workers: 4
+  val:
+    batch_size: ${..train.batch_size}
+    num_workers: ${.batch_size}
+  num_classes:
+    areas: 7
+    ways: 10
+    nodes: 33  
+  pixel_per_meter: 1        # 
+  crop_size_meters: 64        # （）
+  max_init_error: 48              # （）
+  add_map_mask: true
+  resize_image: 512    # resize512
+  pad_to_square: true     # 
+  rectify_pitch: true     # 
+
+  #3、
+  augmentation:
+    rot90: true          # 90
+    flip: true                 # /
+    image: 
+      apply: true 
+      brightness: 0.5             # 
+      contrast: 0.4                # 
+      saturation: 0.4                    # 
+      hue": 0.5/3.14    # ≈0.5/3.14，
+model:
+  image_size: ${data.image_size}
+  latent_dim: 128
+  val_citys: ${data.val_citys}
+  image_encoder:
+    name: feature_extractor_v2
+    backbone:
+      encoder: resnet50     #  ResNet50
+      pretrained: false           #  training.baseline_checkpoint 
+      freeze_batch_normalization: true  #  BN ，
+      output_dim: 8                # 
+      num_downsample: null
+      remove_stride_from_first_conv: false
+  name: maplocnet
+  matching_dim: 8                   # 
+  z_max: 32
+  x_max: 32
+  pixel_per_meter: 1
+  num_scale_bins: 33
+  num_rotations: 64
+  map_encoder:
+    type: hybrid              # cnn（VGG19） graphgps（） hybrid（VGG19+GraphGPS）
+    freeze_batch_normalization: true  #  VGG/U-Net 
+    hidden_dim: 64
+    num_layers: 4
+    fusion:
+      gate_init: 20.0             # sigmoid≈1， TopVeLoc 
+    #  CNN （type: cnn ）
+    embedding_dim: 16
+    output_dim: 8
+    num_classes:              #
+      areas: 7              # ：、、
+      ways: 10             # ：、
+      nodes: 33            # ：、POI
+    backbone:
+      encoder: vgg19
+      pretrained: false   # 48（3×16），ImageNet
+      output_scales:
+      - 0
+      num_downsample: 3
+      decoder:
+      - 128
+      - 64
+      - 64
+      padding: replicate
+    unary_prior: false
+  safeguard:
+    weight: 0.0              # TopVeLoc  CNN 
+    margin: 0.0              # ， NLL 
+  bev_net:
+    num_blocks: 4           # 4
+    latent_dim: 128                 # 
+    output_dim: 8                          # 
+    confidence: true                                # 
+experiment:
+  name: maplocnet__CNN_GNN_safe_v1
+  gpus: 1
+  seed: 0
+training:
+  lr: 0.000001
+  lr_scheduler: null
+  baseline_checkpoint: null
+  topveloc_checkpoint: "./experiments/maplocnet__CNN+GNN_1/checkpoint-best-step-150000.ckpt"
+  optimizer:
+    baseline_lr_scale: 0.1
+    baseline_warmup_steps: 0
+  finetune_from_checkpoint: null    # （ ckpt）
+  trainer:
+    val_check_interval: 10000
+    log_every_n_steps: 100
+    max_steps: 200000
+    devices: ${experiment.gpus}
+  checkpointing:
+    monitor: "loss/total/val"
+    save_top_k: 10
+    mode: min
+
+#    filename: '{epoch}-{step}-{loss_SanFrancisco:.2f}'
